@@ -1,6 +1,6 @@
 import { TFastifyTypedInstance } from "../../types/TFastifyTypedInstance";
 import { UsersController } from "../../controllers/UserController";
-import { CreateUserBodySchema } from "../../schemas/users.post.schema";
+import { CreateUserBodySchema, UserGetAllResponseSchema, UserResponseSchema } from "../../schemas/users.post.schema";
 
 // Inferindo os tipos para o Fastify a partir dos schemas Zod
 export async function users(app: TFastifyTypedInstance) {
@@ -8,6 +8,10 @@ export async function users(app: TFastifyTypedInstance) {
 		schema: {
 			tags: ['Users'],
 			description: 'Get all users',
+			response: {
+				200: UserGetAllResponseSchema
+			}
+				
 		}
 	}, UsersController.getUsers)
 
@@ -17,6 +21,9 @@ export async function users(app: TFastifyTypedInstance) {
 			tags: ['Users'],
 			description: 'Create a new user',
 			body: CreateUserBodySchema,
+			response: {
+				201: UserResponseSchema,
+			}
 		}
 
 	}, UsersController.createUser)

@@ -30,4 +30,20 @@ export class UsersController  {
         reply.status(201).send(user);
     }
 
+    /*static deleteUser = async (request: FastifyRequest, reply: FastifyReply) => {
+        const {} = request.headers
+
+        usersList.pop(user);
+
+        reply.status().send(user);
+    }
+
+    static patchUser = async (request: FastifyRequest<{Params: CreateUserBody, Body: CreateUserBody}>, reply: FastifyReply) => {
+        const { name, email } = request.params;
+
+        usersList.pop(user);
+
+        reply.status().send(user);
+    }*/
+
 }

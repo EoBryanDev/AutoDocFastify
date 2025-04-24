@@ -8,9 +8,18 @@ export const CreateUserBodySchema = z.object({
 export type CreateUserBody = z.infer<typeof CreateUserBodySchema>;
 
 export const UserResponseSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  email: z.string().email(),
+});
+
+export type UserResponse = z.infer<typeof UserResponseSchema>;
+
+export const UserGetAllResponseSchema = 
+  z.object({
     id: z.string(),
     name: z.string(),
     email: z.string().email(),
-  });
-  
-  export type UserResponse = z.infer<typeof UserResponseSchema>;
+  }).array();
+
+export type UserGetAllResponse = z.infer<typeof UserGetAllResponseSchema>;
